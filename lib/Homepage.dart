@@ -156,7 +156,7 @@ class TimerScreen extends ConsumerWidget {
 
               const ExpandableCard(
                 title: 'What does this course include?', 
-                content: 'What does this course include?'),
+                content: 'The course include vedio lessons,downloadable resorces quizzes,and certifications upon competition?'),
 
                 const SizedBox(height: 20),
 
@@ -168,7 +168,7 @@ class TimerScreen extends ConsumerWidget {
 
               const ExpandableCard(
                 title: 'Will I get a certificate after completing the \ncourse?', 
-                content: 'What does this course include?'),
+                content: 'The course include vedio lessons,downloadable resorces quizzes,and certifications upon competition?'),
 
               const SizedBox(height: 20),
                const ThreeOptionSelector(
