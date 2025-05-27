@@ -14,38 +14,20 @@ class ExpandableCard extends StatefulWidget {
   State<ExpandableCard> createState() => _ExpandableCardState();
 }
 
-class _ExpandableCardState extends State<ExpandableCard>
-    with SingleTickerProviderStateMixin {
+class _ExpandableCardState extends State<ExpandableCard> {
   bool _isExpanded = false;
-  late AnimationController _controller;
-  late Animation<double> _iconRotation;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller =
-        AnimationController(vsync: this, duration: const Duration(milliseconds: 200));
-    _iconRotation = Tween<double>(begin: 0.0, end: 0.5).animate(_controller);
-  }
 
   void _toggleExpand() {
     setState(() {
       _isExpanded = !_isExpanded;
-      _isExpanded ? _controller.forward() : _controller.reverse();
     });
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Card(
       elevation: 2,
-       shadowColor: Colors.black.withOpacity(0.9), 
+      shadowColor: Colors.black.withOpacity(0.9),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       child: AnimatedSize(
         duration: const Duration(milliseconds: 300),
@@ -62,14 +44,19 @@ class _ExpandableCardState extends State<ExpandableCard>
                   children: [
                     Text(
                       widget.title,
-                      style:
-                          const TextStyle(fontSize: 16, fontWeight: FontWeight.w600,
-                          fontFamily: 'Schyler'),
+                      style: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                        fontFamily: 'Schyler',
+                      ),
                     ),
-                    RotationTransition(
-                      turns: _iconRotation,
-                      child: const Icon(Icons.keyboard_arrow_down,
-                          size: 27, color: Colors.purple),
+                    Icon(
+                      _isExpanded
+                          ? Icons.arrow_downward
+                          : Icons.arrow_forward,
+                      size: 27,
+                      color: Color(0xFF7D23E0)
+,
                     ),
                   ],
                 ),
@@ -80,8 +67,11 @@ class _ExpandableCardState extends State<ExpandableCard>
                 padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
                 child: Text(
                   widget.content,
-                  style: const TextStyle(fontSize: 14, color: Colors.black87,
-                  fontFamily: 'Schyler'),
+                  style: const TextStyle(
+                    fontSize: 14,
+                    color: Colors.black87,
+                    fontFamily: 'Schyler',
+                  ),
                 ),
               ),
           ],

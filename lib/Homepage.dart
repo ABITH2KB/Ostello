@@ -2,12 +2,12 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:ostello/card_wigt.dart';
-import 'package:ostello/dropdown_widget.dart';
-import 'package:ostello/imageandtext.dart';
-import 'package:ostello/price_widget.dart';
-import 'package:ostello/time_prover2.dart';
-import 'package:ostello/timer_widget.dart';
+import 'package:ostello/widget/card_wigt.dart';
+import 'package:ostello/widget/dropdown_widget.dart';
+import 'package:ostello/widget/imageandtext.dart';
+import 'package:ostello/widget/price_widget.dart';
+import 'package:ostello/timer/time_prover2.dart';
+import 'package:ostello/timer/timer_widget.dart';
 
 
 final carouselIndexProvider = StateProvider<int>((ref) => 0);
@@ -32,7 +32,11 @@ class TimerScreen extends ConsumerWidget {
               const SizedBox(height: 50),
               const Text(
                 'The Ultimate Fluency\n     Mastery Course',
-                style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'Schyler',
+                ),
               ),
               const SizedBox(height: 20),
               Image.asset('asset/image/Frame 1707480242.png'),
@@ -127,7 +131,8 @@ class TimerScreen extends ConsumerWidget {
                 position: currentIndex.toDouble(),
                 decorator: DotsDecorator(
                   color: Colors.grey,
-                  activeColor: Colors.purple,
+                  activeColor:Color(0xFF7D23E0),
+
                   size: const Size.square(10.0),
                   activeSize: const Size(12.0, 8.0),
                   activeShape: RoundedRectangleBorder(
@@ -157,7 +162,7 @@ class TimerScreen extends ConsumerWidget {
 
               const ExpandableCard(
                 title: 'Can I access the course content after \ncompleting it?', 
-                content: 'What does this course include?'),
+                content: 'The course include vedio lessons,downloadable resorces quizzes,and certifications upon competition?'),
 
                 const SizedBox(height: 20),
 
@@ -173,7 +178,10 @@ class TimerScreen extends ConsumerWidget {
                SizedBox(width: double.infinity,
                height: 50,
                  child: ElevatedButton(
-                  onPressed: (){},style: ButtonStyle(backgroundColor: const WidgetStatePropertyAll(Colors.purple),
+                  onPressed: (){},
+                  style: ButtonStyle(
+                  backgroundColor: const WidgetStatePropertyAll(Color(0xFF7D23E0)
+),
                   shape: WidgetStatePropertyAll(
                     RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20),
