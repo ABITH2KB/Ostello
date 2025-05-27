@@ -21,6 +21,7 @@ class TimeBlock extends StatelessWidget {
             fontSize: 40,
             fontWeight: FontWeight.bold,
             color: Colors.black,
+            fontFamily: 'Schyler',
           ),
         ),
         const SizedBox(height: 4),
